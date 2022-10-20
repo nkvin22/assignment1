@@ -1,18 +1,19 @@
-class My3DVector( val x: Int, val y: Int, val z: Int){
+class My3DVector(val x:Double, val y:Double, val z:Double) {
 
-    fun dotproduct(vector: My3DVector): Int{
+    fun dotproduct(vector: My3DVector): Double {
         return  vector.x * x + vector.y * y + vector.z * z
     }
 
-    // crossproduct determinantit davitvalot , pirveli meore mesame = koordinatebi
+    // crossproduct formaluri determinantit davitvalot
+    // first, second, third == crossproduct coordinates
 
     fun crossproduct(vector: My3DVector): String{
 
-        val pirveli = vector.z * y - vector.y * z
-        val meore = -(vector.z * x - vector.x * z)
-        val mesame = vector.y * x - vector.x * y
+        val first = y * vector.z - z * vector.y
+        val second = -(x * vector.z - z * vector.x)
+        val third = x * vector.y - y * vector.x
 
-        return "($pirveli, $meore, $mesame)"
+        return "($first; $second; $third)"
 
     }
 
